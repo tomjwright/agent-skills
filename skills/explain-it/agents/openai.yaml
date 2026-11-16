@@ -1,0 +1,5 @@
+interface:
+  display_name: "Explain It"
+  short_description: "Explain code by following one concrete input through the files, in plain words"
+policy:
+  allow_implicit_invocation: false
