@@ -9,6 +9,7 @@ The rules borrow from [Matt Pocock's skills](https://github.com/mattpocock/skill
 - A skill is a folder `skills/<name>/` holding `SKILL.md`. The folder name is the skill's `name`: lowercase words joined by hyphens, at most 64 characters.
 - `SKILL.md` starts with a frontmatter block holding `name` and `description`. Add nothing else, except `disable-model-invocation: true` for user-invoked skills (see below). Agents that don't know a field ignore it, so the skill stays portable.
 - The body opens with one or two sentences on what the skill does. Then numbered steps, then a fixed **Output** section that says exactly what the skill hands back.
+- A **shortcut** is a user-invoked skill whose body only loads other skills, like `grill-me`. Its body is just the load sentence plus what to apply it to: the steps and **Output** are the loaded skill's.
 - Keep `SKILL.md` under about 150 lines. Move long detail into `references/<topic>.md` and link to it from the step that needs it, so the agent reads it only then. Reference files link to nothing else.
 - Each skill also has `agents/openai.yaml`, which sets how Codex shows and starts it.
 
@@ -54,7 +55,7 @@ Checker skills (`code-review`, `test-check`, `architecture-check`) must:
 
 ## Changing a skill
 
-One skill per PR. In the PR:
+One skill per PR. A shortcut ships in the same PR as the skill it loads. In the PR:
 
 1. Run `python3 scripts/check_skills.py` and `python3 -m unittest discover -s tests`.
 2. Try the skill on a real repo and paste what it produced.
