@@ -9,7 +9,7 @@ Review the diff between `HEAD` and a fixed point on three axes, each kept apart 
 - **Spec:** does it do what the issue or spec asked for, and nothing more?
 - **Bugs:** does it do the wrong thing when it runs?
 
-This is a checker: it reports and stops. It never edits, commits or pushes.
+This is a checker: it reports and stops. It suggests a fix for each finding but never applies one, and never edits, commits or pushes.
 
 ## Steps
 
@@ -20,7 +20,8 @@ This is a checker: it reports and stops. It never edits, commits or pushes.
 5. **Find the spec.** In order: a spec or issue the user named, issue references in the commit messages (`#12`, `Closes #12`), the PR description, the place `## Specs` in `AGENTS.md` points to. If there is none, ask the user once. If there still isn't one, skip the Spec axis and say "no spec found".
 6. **Review each axis separately.** If your agent can start sub-agents, start one per axis, each with a fresh context window, and pass it the diff command, the commit list, the files from step 4 or 5, and its brief below. Otherwise do the axes yourself, one after another, finishing one before starting the next.
 7. **Check every finding before reporting it.** Open each `file:line` and rerun each command a sub-agent reported. Drop a finding you can't reproduce, or mark it unproven. Never fix anything.
-8. **Report** in the format below. Don't merge or rerank findings across axes.
+8. **Suggest a fix for each finding.** Give the smallest change that resolves it, as a short pseudo-diff or one sentence naming the function and what changes. Fix a hard standard the way its rule says to, and a smell the way [references/smells.md](references/smells.md) says. For a bug, the run in its proof becomes the test that shows the fix works. Where it's cheap, try the fix in a scratch copy (`git worktree add --detach <temp>/code-review-<short-sha> HEAD`, removed afterwards): the proof's run must pass with the fix. Mark it tried or untried.
+9. **Report** in the format below. Don't merge or rerank findings across axes.
 
 ## Axis briefs
 
@@ -44,18 +45,21 @@ S1. [hard | judgement] <one-line finding>
 Where: <file:line> "<quoted changed line>"
 Rule: <file:line> "<quoted rule>" | smell: <name>
 Status: proven | unproven
+Suggest: <the change>
 
 ## Spec
 P1. [missing | not asked for | wrong] <one-line finding>
 Spec: "<quoted spec line>"
 Where: <file:line> "<quoted changed line>"
 Status: proven | unproven
+Suggest: <the change>
 
 ## Bugs
 B1. <one-line finding>
 Where: <file:line>
 Proof: <command> printed <the lines that matter>
 Status: proven | unproven (Would prove it: <run>)
+Suggest: <the change>. tried: <the proof run> now prints <the line> | untried
 
 ## Cleared
 - <what each axis checked and found fine>

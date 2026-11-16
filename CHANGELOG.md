@@ -6,3 +6,4 @@
 - Add `grilling` (model-invoked interview) and `grill-me` (user-invoked shortcut).
 - Add `prove-it` (model-invoked evidence rules for claims and findings).
 - Add `code-review` (model-invoked checker: standards, spec and bugs, each finding proven).
+- `code-review` suggests a fix for each finding, and tries bug fixes in a scratch copy when it's cheap.
