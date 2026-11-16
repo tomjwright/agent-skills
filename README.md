@@ -40,6 +40,7 @@ The agent loads these by itself when the task fits, and you can also start them.
 - [prove-it](skills/prove-it/SKILL.md): check a claim against the real code before stating it, and label anything unchecked as unproven.
 - [pr](skills/pr/SKILL.md): write a small, plain-English PR description with a file-by-file walkthrough, an example and proof it was tested.
 - [simplify](skills/simplify/SKILL.md): cut one-caller wrappers, pass-through layers, callback detours and dead code, with the tests proving behaviour is unchanged.
+- [tdd](skills/tdd/SKILL.md): build or fix test-first, one failing test and one small change at a time, each test proven to fail for the right reason.
 - [test-check](skills/test-check/SKILL.md): break the code in a scratch copy to find weak tests, tests pinned to the implementation, and untested behaviour.
 
 ## Writing a skill

@@ -13,3 +13,4 @@
 - Add `pr` (model-invoked: checks the branch is one small PR, runs the checks, then writes the description with files, an example, test output and risk).
 - Add `explain-it` (user-invoked: follows one concrete input through the files, citing and checking each step).
 - Add `simplify` (model-invoked: cuts layers and state a reader must hold, applying only what the user agrees to, with checks run after each change).
+- Add `tdd` (model-invoked: agrees the seams, then red and green one slice at a time, each red shown failing for the right reason).
