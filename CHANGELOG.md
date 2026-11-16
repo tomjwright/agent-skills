@@ -11,4 +11,3 @@
 - Add `architecture-check` (user-invoked checker: shallow modules, leaked decisions and hand-synced lists in the hot spots, each finding proven).
 - Add `domain-modeling` (model-invoked: settles terms against the glossary and code, writes GLOSSARY.md and ADRs) and its `grill-with-docs` shortcut.
 - Add `simplify` (model-invoked: cuts layers and state a reader must hold, applying only what the user agrees to, with checks run after each change).
-||||||| 01020ba
