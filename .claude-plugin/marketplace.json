@@ -1,0 +1,11 @@
+{
+  "name": "tomjwright",
+  "owner": { "name": "Tom Wright" },
+  "plugins": [
+    {
+      "name": "agent-skills",
+      "source": "./",
+      "description": "Grilling interviews, and code, architecture and test checkers that prove every finding."
+    }
+  ]
+}
