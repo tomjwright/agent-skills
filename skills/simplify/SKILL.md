@@ -10,7 +10,7 @@ This skill changes code, but only what the user agrees to, and it never commits 
 ## Steps
 
 1. **Load the `prove-it` skill with your skill tool.** Its rules decide what counts as proof below.
-2. **Choose the scope.** Use the files, folder or diff the user names. If they named none, use the uncommitted and branch changes (`git status --short`, `git diff --merge-base main`). If that's empty too, ask.
+2. **Choose the scope.** Use the files, folder or diff the user names. If they named none, use the changes since the repo's default branch (`git diff --merge-base <default>`, plus `git status --short` for untracked files) and say so. If that's empty too, ask.
 3. **Read the repo's rules.** Read `## Checks` and `## Standards` in `AGENTS.md`, and `GLOSSARY.md` if it exists. A standard overrides this skill: if the repo asks for a layer, keep it.
 4. **Run the checks.** Run every command in `## Checks` and record what each printed. They must pass. If they fail, report the failures and stop: a change can't be proven safe against a red suite.
 5. **Find candidates.** Read the scope as a new reader would, asking for each function "where does this come from?" and "what can change it?". Match what slows you down against [references/candidates.md](references/candidates.md). Count callers by searching the whole repo, and run the deletion test on every layer before you suggest cutting it.
