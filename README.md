@@ -25,6 +25,7 @@ Skills read each repo's commands and rules from its `AGENTS.md`. See [docs/REPO-
 
 You start these by typing `/<name>`.
 
+- [architecture-check](skills/architecture-check/SKILL.md): find shallow modules, leaked decisions and hand-synced lists in the code that changes most, and talk through a fix.
 - [grill-me](skills/grill-me/SKILL.md): an interview that sharpens a plan or design before you build it.
 
 ### Model-invoked
