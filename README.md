@@ -35,6 +35,7 @@ The agent loads these by itself when the task fits, and you can also start them.
 - [code-review](skills/code-review/SKILL.md): review a diff on three separate axes, standards, spec and bugs, and prove every finding.
 - [grilling](skills/grilling/SKILL.md): rounds of numbered questions, each with a recommended answer, until every decision in a plan is settled.
 - [prove-it](skills/prove-it/SKILL.md): check a claim against the real code before stating it, and label anything unchecked as unproven.
+- [simplify](skills/simplify/SKILL.md): cut one-caller wrappers, pass-through layers, callback detours and dead code, with the tests proving behaviour is unchanged.
 - [test-check](skills/test-check/SKILL.md): break the code in a scratch copy to find weak tests, tests pinned to the implementation, and untested behaviour.
 
 ## Writing a skill
