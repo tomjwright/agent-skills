@@ -1,0 +1,8 @@
+{
+  "name": "agent-skills",
+  "version": "0.1.0",
+  "description": "Tool-agnostic skills: grilling interviews, and code, architecture and test checkers that prove every finding.",
+  "author": { "name": "Tom Wright" },
+  "repository": "https://github.com/tomjwright/agent-skills",
+  "license": "MIT"
+}
