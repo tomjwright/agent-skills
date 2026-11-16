@@ -1,0 +1,3 @@
+interface:
+  display_name: "PR"
+  short_description: "Write a small, plain-English PR description with a file-by-file walkthrough, an example and proof it was tested"
