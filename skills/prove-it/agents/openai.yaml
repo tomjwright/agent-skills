@@ -1,0 +1,3 @@
+interface:
+  display_name: "Prove It"
+  short_description: "Check a claim against the real code before stating it"

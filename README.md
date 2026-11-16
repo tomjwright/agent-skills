@@ -32,6 +32,7 @@ You start these by typing `/<name>`.
 The agent loads these by itself when the task fits, and you can also start them.
 
 - [grilling](skills/grilling/SKILL.md): rounds of numbered questions, each with a recommended answer, until every decision in a plan is settled.
+- [prove-it](skills/prove-it/SKILL.md): check a claim against the real code before stating it, and label anything unchecked as unproven.
 
 ## Writing a skill
 
