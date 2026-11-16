@@ -24,7 +24,7 @@ This is a checker: it reports and stops. It suggests tests but never adds them t
 8. **Break each behaviour** with one small edit from [references/probes.md](references/probes.md). Run the tests that cover it, then the whole suite. Record which tests failed and the line that shows it, or that every test passed. Restore the file (`git -C <scratch> checkout -- <file>`) before the next probe. When every test passed, find out whether any test runs that line: put an error the code doesn't catch there (`raise SystemExit("test-check reached")` or your language's equivalent) and run the suite. If it still passes, no test runs the line and it is **untested**. Otherwise it is **weak**.
 9. **Change the internals** for each test that looks pinned to them: it mocks code the repo owns, calls a private helper, asserts call order or counts on internal code, or matches exact wording no caller reads. Make one refactor from [references/probes.md](references/probes.md) that keeps every observable result the same, and show it does by running another test or script that checks those results. Run the test. If it fails, it is **coupled**. Restore the file.
 10. **Read the tests in scope** for the patterns in [references/probes.md](references/probes.md) that no probe covers (an expected value computed by the code under test, an assertion on data the test built itself, a skipped test). Report each one as unproven unless a probe confirmed it.
-11. **Suggest a fix for each finding.** Name the test to add or change, the input it uses, and the expected value, taken from the spec, never from a run of the code. For a coupled test, say which public interface to test through instead. Where it's cheap, try the suggestion in the scratch copy: it must pass on the original code and fail with the probe. Mark it tried or untried.
+11. **Suggest a fix for each finding.** Name the test to add or change, the input it uses, and the expected value, taken from the spec, never from a run of the code. For a coupled test, say which public interface to test through instead. Where it's cheap, try the suggestion in the scratch copy. A test for a weak or untested finding must pass on the original code and fail with the probe. A replacement for a coupled test must pass on both the original and the refactor. Mark it tried or untried.
 12. **Clean up.** Run `git worktree remove --force <scratch>` and check that `git status --short` in the user's tree matches what it was in step 2.
 13. **Report** in the format below.
 
@@ -50,7 +50,7 @@ C1. <test name> fails when <internal detail> changes
 Refactor: <file:line> <what changed>. Behaviour kept: <command> printed "<line>"
 Proof: <command> printed "<the failure line>"
 Status: proven | unproven
-Suggest: <what to test through instead, and what to assert>
+Suggest: <what to test through instead, and what to assert>. tried: passes on the original and the refactor | untried
 
 ## Untested
 U1. <behaviour> has no test
