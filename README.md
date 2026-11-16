@@ -25,13 +25,13 @@ Skills read each repo's commands and rules from its `AGENTS.md`. See [docs/REPO-
 
 You start these by typing `/<name>`.
 
-None yet.
+- [grill-me](skills/grill-me/SKILL.md): an interview that sharpens a plan or design before you build it.
 
 ### Model-invoked
 
 The agent loads these by itself when the task fits, and you can also start them.
 
-None yet.
+- [grilling](skills/grilling/SKILL.md): rounds of numbered questions, each with a recommended answer, until every decision in a plan is settled.
 
 ## Writing a skill
 
