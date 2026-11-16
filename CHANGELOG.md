@@ -10,6 +10,7 @@
 - `code-review` suggests a fix for each finding, and tries bug fixes in a scratch copy when it's cheap.
 - Add `architecture-check` (user-invoked checker: shallow modules, leaked decisions and hand-synced lists in the hot spots, each finding proven).
 - Add `domain-modeling` (model-invoked: settles terms against the glossary and code, writes GLOSSARY.md and ADRs) and its `grill-with-docs` shortcut.
+- Add `pr` (model-invoked: checks the branch is one small PR, runs the checks, then writes the description with files, an example, test output and risk).
 - Add `explain-it` (user-invoked: follows one concrete input through the files, citing and checking each step).
 - Add `simplify` (model-invoked: cuts layers and state a reader must hold, applying only what the user agrees to, with checks run after each change).
 - Add `tdd` (model-invoked: agrees the seams, then red and green one slice at a time, each red shown failing for the right reason).
