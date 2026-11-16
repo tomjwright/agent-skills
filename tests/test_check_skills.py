@@ -69,7 +69,26 @@ class CheckSkillsTest(unittest.TestCase):
     def test_missing_frontmatter(self):
         self.add_skill("tdd")
         (self.root / "skills" / "tdd" / "SKILL.md").write_text("No header.")
-        self.assertEqual(self.problems(), ["skills/tdd: SKILL.md must start with a --- frontmatter block"])
+        self.assertEqual(self.problems(), [
+            "skills/tdd: SKILL.md must start with a --- frontmatter block closed by a --- line"])
+
+    def test_unclosed_frontmatter(self):
+        self.add_skill("tdd")
+        (self.root / "skills" / "tdd" / "SKILL.md").write_text("---\nname: tdd\ndescription: x\n")
+        self.assertEqual(self.problems(), [
+            "skills/tdd: SKILL.md must start with a --- frontmatter block closed by a --- line"])
+
+    def test_quoted_values_are_unquoted(self):
+        self.add_skill("tdd")
+        (self.root / "skills" / "tdd" / "SKILL.md").write_text(
+            "---\nname: 'tdd'\ndescription: \"Does a thing.\"\n---\n\nSteps.\n")
+        self.assertEqual(self.problems(), [])
+
+    def test_multiline_value(self):
+        self.add_skill("tdd")
+        (self.root / "skills" / "tdd" / "SKILL.md").write_text(
+            "---\nname: tdd\ndescription: >\n  Does a thing.\n---\n\nSteps.\n")
+        self.assertEqual(self.problems(), ["skills/tdd: frontmatter field 'description' must be on one line"])
 
 
 if __name__ == "__main__":

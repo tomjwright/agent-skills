@@ -11,17 +11,25 @@ from pathlib import Path
 NAME = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 LINK = re.compile(r"\]\(([^)#\s]+)(?:#[^)]*)?\)")
 SKILL_REF = re.compile(r"the `([a-z0-9-]+)` skill")
+FRONTMATTER = re.compile(r"---\n(.*?)\n---(?:\n|$)(.*)", re.DOTALL)
 
 
 def read_frontmatter(text: str) -> tuple[dict[str, str], str]:
-    if not text.startswith("---\n"):
-        raise ValueError("SKILL.md must start with a --- frontmatter block")
-    header, _, body = text[4:].partition("\n---\n")
+    match = FRONTMATTER.match(text)
+    if not match:
+        raise ValueError("SKILL.md must start with a --- frontmatter block closed by a --- line")
+    header, body = match.groups()
     fields = {}
     for line in header.splitlines():
         key, sep, value = line.partition(":")
-        if sep:
-            fields[key.strip()] = value.strip().strip('"')
+        if not sep:
+            continue
+        value = value.strip()
+        if value[:1] in (">", "|"):
+            raise ValueError(f"frontmatter field {key.strip()!r} must be on one line")
+        if len(value) >= 2 and value[0] == value[-1] and value[0] in "'\"":
+            value = value[1:-1]
+        fields[key.strip()] = value
     return fields, body
 
 
