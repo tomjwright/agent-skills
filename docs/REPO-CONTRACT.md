@@ -18,8 +18,8 @@ How code should be written here: rules in a list, or links to files such as `CON
 
 | File | Used by | Holds |
 |---|---|---|
-| `GLOSSARY.md` | `grill-with-docs`, `architecture-check` | The project's terms, one definition each |
-| `docs/adr/NNNN-title.md` | `grill-with-docs`, `architecture-check` | Decisions that are hard to reverse, so they aren't argued again |
+| `GLOSSARY.md` | `domain-modeling`, `architecture-check` | The project's terms, one definition each |
+| `docs/adr/NNNN-title.md` | `domain-modeling`, `architecture-check` | Decisions that are hard to reverse, so they aren't argued again |
 | `## Specs` in `AGENTS.md` | `code-review` | Where specs or issues live, so a change can be checked against what was asked for |
 
 ## When something is missing

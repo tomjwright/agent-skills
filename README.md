@@ -27,12 +27,14 @@ You start these by typing `/<name>`.
 
 - [architecture-check](skills/architecture-check/SKILL.md): find shallow modules, leaked decisions and hand-synced lists in the code that changes most, and talk through a fix.
 - [grill-me](skills/grill-me/SKILL.md): an interview that sharpens a plan or design before you build it.
+- [grill-with-docs](skills/grill-with-docs/SKILL.md): the same interview, writing the glossary and ADRs as terms and decisions are settled.
 
 ### Model-invoked
 
 The agent loads these by itself when the task fits, and you can also start them.
 
 - [code-review](skills/code-review/SKILL.md): review a diff on three separate axes, standards, spec and bugs, and prove every finding.
+- [domain-modeling](skills/domain-modeling/SKILL.md): settle what the project's terms mean against the glossary and the code, and write GLOSSARY.md and ADRs.
 - [grilling](skills/grilling/SKILL.md): rounds of numbered questions, each with a recommended answer, until every decision in a plan is settled.
 - [prove-it](skills/prove-it/SKILL.md): check a claim against the real code before stating it, and label anything unchecked as unproven.
 - [pr](skills/pr/SKILL.md): write a small, plain-English PR description with a file-by-file walkthrough, an example and proof it was tested.

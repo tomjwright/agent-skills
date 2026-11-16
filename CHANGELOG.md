@@ -9,4 +9,6 @@
 - Add `test-check` (model-invoked checker: breaks the code in a scratch copy to find weak, coupled and missing tests).
 - `code-review` suggests a fix for each finding, and tries bug fixes in a scratch copy when it's cheap.
 - Add `architecture-check` (user-invoked checker: shallow modules, leaked decisions and hand-synced lists in the hot spots, each finding proven).
+- Add `domain-modeling` (model-invoked: settles terms against the glossary and code, writes GLOSSARY.md and ADRs) and its `grill-with-docs` shortcut.
 - Add `pr` (model-invoked: checks the branch is one small PR, runs the checks, then writes the description with files, an example, test output and risk).
+||||||| 01020ba
