@@ -5,7 +5,7 @@ description: Settle what the project's terms mean and record hard-to-reverse dec
 
 Make the project's language precise while you design, and write it down the moment it's settled. Reading `GLOSSARY.md` to pick the right word is a habit any skill can have. This skill is for changing the glossary and the decisions, not only reading them.
 
-It writes only `GLOSSARY.md`, `GLOSSARY-MAP.md` and files in `docs/adr/`. It never edits code, and never commits.
+It writes only `GLOSSARY.md`, `GLOSSARY-MAP.md` and files in `docs/adr/`, and only once the user allows it (step 6). It never edits code, and never commits.
 
 ## Steps
 
@@ -14,7 +14,7 @@ It writes only `GLOSSARY.md`, `GLOSSARY-MAP.md` and files in `docs/adr/`. It nev
 3. **Sharpen a vague term.** When one word could mean two things, name both and recommend one word for each: "By memory, do you mean the saved facts, or everything the `Memory` class stores?"
 4. **Test it with a concrete case.** For each relationship between terms, invent a specific case at the edge and ask what happens: "The user says forget that I live in Singapore. The fact goes, but the message is still in the last 20 sent to the model. Is it forgotten?"
 5. **Check the code agrees.** Load the `prove-it` skill with your skill tool. Before saying how the code works, read it and cite the `file:line`. When the code contradicts what the user said, show both and ask which is right. Don't change the code to match.
-6. **Write each term as soon as the user agrees it.** Add or change the entry in `GLOSSARY.md` in the format in [references/glossary.md](references/glossary.md). Don't save them up for the end. Keep implementation out of it: no class names, tables or file paths. It's a glossary, not a spec.
+6. **Write each term as soon as the user agrees it, once writing is allowed.** Writing is allowed when the user asked to update the glossary or ADRs, or started this skill through one that says so. Otherwise, before the first write, ask once whether to write agreed terms to the repo as you go. If they say no, keep the entries in a draft in the system temp folder and give its path in the Output. Add or change the entry in `GLOSSARY.md` in the format in [references/glossary.md](references/glossary.md). Don't save them up for the end. Keep implementation out of it: no class names, tables or file paths. It's a glossary, not a spec.
 7. **Offer an ADR only when a decision is hard to reverse, surprising without context, and the result of a real trade-off.** All three, or skip it. Show the text and write it to `docs/adr/` only after the user says yes, in the format in [references/adr.md](references/adr.md).
 
 ## Output
@@ -22,7 +22,7 @@ It writes only `GLOSSARY.md`, `GLOSSARY-MAP.md` and files in `docs/adr/`. It nev
 At the end of the session:
 
 ```text
-Glossary: <file>
+Glossary: <file> | draft at <temp path>
 - added <term> | changed <term>: <old meaning> -> <new meaning>
 ADRs: <file>: <title> | none
 Code conflicts:
