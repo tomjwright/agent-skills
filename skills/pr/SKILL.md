@@ -12,7 +12,7 @@ This skill writes the description. It doesn't change code, and it opens or updat
 1. **Load the `prove-it` skill with your skill tool.** Its rules decide what counts as proof in **Tested**.
 2. **Find the diff.** Use the base the user names, or the repo's default branch, and say which. Run `git log <base>..HEAD --oneline` and `git diff --merge-base <base> --stat`. Run `git status --short` too: if there is uncommitted work, ask whether it belongs in this PR before writing anything. If it does, the changed files are those in `git diff --merge-base <base> --stat` plus those in `git status --short`.
 3. **Check it is one PR.** Read `## Standards` in `AGENTS.md` for the repo's rules on PR size and branches. Stop and tell the user, with the evidence, if:
-   - the hand-written lines (not lock files, generated code or snapshots) go over the repo's limit, or about 300 if it sets none. Propose a split, one idea per PR, in the order to merge them.
+   - the hand-written lines (not lock files, generated code or snapshots) go over the repo's limit, or about 300 if it sets none (say the limit was assumed, and suggest the `## Standards` line to add). Propose a split, one idea per PR, in the order to merge them.
    - the diff holds more than one idea. Name each one.
    - the branch contains commits from another branch that hasn't merged yet (`git branch -r --contains <sha>` for the oldest commit). Each PR should start from an up-to-date base.
 4. **Run the checks.** Run every command in `## Checks` of `AGENTS.md`, and run what changed (the command, the endpoint, the page) the way a user would. Record each command and the line that shows its result. Whatever you couldn't run goes under **Not tested**, with the reason. Never write a command you didn't run.
@@ -22,7 +22,7 @@ This skill writes the description. It doesn't change code, and it opens or updat
    - **Files:** each file the diff changes, with a sentence or two on what it does now and why. Group trivial ones (lock files, a README line) on one line.
    - **Example:** one concrete case: an input and what happens before and after, a request and its response, or the test that failed before and passes now.
    - **Risk:** say whether it is easy to undo (a revert puts everything back) or hard to undo (a data migration, a deleted file users rely on, a public interface or message format changed), and what else could break.
-7. **Check the description against the diff.** Every file in `--stat` appears under **Files**, and every claim in **Summary** matches a line in the diff. Fix anything that doesn't.
+7. **Check the description against the diff.** Every changed file from step 2 appears under **Files**, and every claim in **Summary** matches a line in the diff. Fix anything that doesn't.
 8. **Report** the description, ready to paste: in the repo's template if step 5 found one, with every one of its sections kept, otherwise in the Output format.
 
 ## Output
