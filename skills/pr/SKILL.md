@@ -10,7 +10,7 @@ This skill writes the description. It doesn't change code, and it opens or updat
 ## Steps
 
 1. **Load the `prove-it` skill with your skill tool.** Its rules decide what counts as proof in **Tested**.
-2. **Find the diff.** Use the base the user names, or the repo's default branch, and say which. Run `git log <base>..HEAD --oneline` and `git diff --merge-base <base> --stat`. Run `git status --short` too: if there is uncommitted work, ask whether it belongs in this PR before writing anything.
+2. **Find the diff.** Use the base the user names, or the repo's default branch, and say which. Run `git log <base>..HEAD --oneline` and `git diff --merge-base <base> --stat`. Run `git status --short` too: if there is uncommitted work, ask whether it belongs in this PR before writing anything. If it does, the changed files are those in `git diff --merge-base <base> --stat` plus those in `git status --short`.
 3. **Check it is one PR.** Read `## Standards` in `AGENTS.md` for the repo's rules on PR size and branches. Stop and tell the user, with the evidence, if:
    - the hand-written lines (not lock files, generated code or snapshots) go over the repo's limit, or about 300 if it sets none. Propose a split, one idea per PR, in the order to merge them.
    - the diff holds more than one idea. Name each one.
