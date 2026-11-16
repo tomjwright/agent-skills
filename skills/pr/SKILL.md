@@ -23,7 +23,7 @@ This skill writes the description. It doesn't change code, and it opens or updat
    - **Example:** one concrete case: an input and what happens before and after, a request and its response, or the test that failed before and passes now.
    - **Risk:** say whether it is easy to undo (a revert puts everything back) or hard to undo (a data migration, a deleted file users rely on, a public interface or message format changed), and what else could break.
 7. **Check the description against the diff.** Every file in `--stat` appears under **Files**, and every claim in **Summary** matches a line in the diff. Fix anything that doesn't.
-8. **Report** the description in the Output format, ready to paste.
+8. **Report** the description, ready to paste: in the repo's template if step 5 found one, with every one of its sections kept, otherwise in the Output format.
 
 ## Output
 
