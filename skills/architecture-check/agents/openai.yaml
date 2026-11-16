@@ -1,0 +1,5 @@
+interface:
+  display_name: "Architecture Check"
+  short_description: "Find shallow modules, leaks and hand-synced lists in the code that changes most"
+policy:
+  allow_implicit_invocation: false
