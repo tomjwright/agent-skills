@@ -1,0 +1,3 @@
+interface:
+  display_name: "Test Check"
+  short_description: "Break the code in a scratch copy to see which tests notice"
