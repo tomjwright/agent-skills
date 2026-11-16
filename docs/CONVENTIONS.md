@@ -55,7 +55,7 @@ Checker skills (`code-review`, `test-check`, `architecture-check`) must:
 
 ## Changing a skill
 
-One skill per PR. In the PR:
+One skill per PR. A shortcut ships in the same PR as the skill it loads. In the PR:
 
 1. Run `python3 scripts/check_skills.py` and `python3 -m unittest discover -s tests`.
 2. Try the skill on a real repo and paste what it produced.

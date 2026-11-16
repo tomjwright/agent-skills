@@ -9,7 +9,7 @@ Tool-agnostic agent skills, one folder per skill under `skills/`. [docs/CONVENTI
 ## How we work
 
 1. Work on a feature branch cut from an up-to-date `main`. Never commit or push to `main`.
-2. One skill per PR, roughly 200-300 lines.
+2. One skill per PR, roughly 200-300 lines. A shortcut ships with the skill it loads.
 3. Explain the PR in plain English: what changed and why, each file in a sentence or two, and an example of the skill being used on a real repo.
 4. Every skill is linked from `README.md` under **User-invoked** or **Model-invoked**.
 5. Delete the branch after the PR merges.
